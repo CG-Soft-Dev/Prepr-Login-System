@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SSO Login Successful - PreprLabs</title>
+    <link rel="stylesheet" href="/styles/styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="form-section">
+            <img src="images/logo.png" alt="Prepr Labs" class="logo">
+            <h1>SSO Login Successful!</h1>
+            <div class="success-message">
+                <h2>User Information:</h2>
+                <p>Username: <%= user.name %></p>
+                <p class="access-token">Access Token: <%= accessToken %></p>
+            </div>
+            <p>You will be redirected to the homepage in 5 seconds...</p>
+        </div>
+    </div>
+
+    <script>
+        setTimeout(() => {
+            const token = '<%= accessToken %>';
+            if (!token) {
+                window.location.href = 'http://localhost:3000/welcome';
+            } else {
+                window.location.href = `http://localhost:3000/?token=${token}`;
+            }
+        }, 5000);
+
+        setInterval(() => {
+            const token = '<%= accessToken %>';
+            if (!token) {
+                window.location.href = '/welcome';
+            }
+        }, 1000);
+    </script>
+</body>
+</html> 

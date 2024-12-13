@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - PreprLabs</title>
+    <link rel="stylesheet" href="/styles/styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="form-section">
+            <img src="images/logo.png" alt="Prepr Labs" class="logo">
+            <h1>Welcome, <%= name %>!</h1>
+            <form action="/logout?_method=DELETE" method="POST">
+                <button type="submit" class="button secondary-btn">Log Out</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

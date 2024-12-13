@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - PreprLabs</title>
+    <link rel="stylesheet" href="/styles/styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="form-section">
+            <img src="images/logo.png" alt="Prepr Labs" class="logo">
+            <h1>Login to Your Account</h1>
+            <% if (messages.error) { %>
+                <div class="error-message" style="display: block;">
+                    <%= messages.error %>
+                </div>
+            <% } %>
+            <form action="/login" method="POST">
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <button type="submit" class="button primary-btn">Login</button>
+            </form>
+            <p class="link-text">
+                Don't have an account? <a href="/register">Register</a> or 
+                <a href="/welcome">Back to Welcome Page</a>
+            </p>
+        </div>
+    </div>
+</body>
+</html>

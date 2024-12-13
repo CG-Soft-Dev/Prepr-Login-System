@@ -1,0 +1,40 @@
+//This file is only for testing APIs
+
+//Get posts with access token
+GET http://localhost:3001/posts
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiSm9obiAxMTciLCJpYXQiOjE3MzM4MzEwMjYsImV4cCI6MTczMzgzMTA0MX0.wLBKdIEn8_sM8jkbAdvWM2zJuTCeJa8rybzAy2F6Yp8
+
+###
+
+
+DELETE http://localhost:4000/logout
+Content-Type: application/json
+
+{
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiSm9obiAxMTciLCJpYXQiOjE3MzM4MzE4MTB9.FjtQ2-jUCGUTGpljjPpilZgi1pd5DCj51k8PCsRwRQI"
+}
+
+
+###
+
+//Get access token with refresh token
+POST http://localhost:4000/token
+Content-Type: application/json
+
+{
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiSm9obiAxMTciLCJpYXQiOjE3MzM4MzE4MTB9.FjtQ2-jUCGUTGpljjPpilZgi1pd5DCj51k8PCsRwRQI"
+}
+
+###
+
+//Login and get access and refresh tokens
+POST http://localhost:4000/login
+Content-Type: application/json
+
+{
+    "username": "John 117"
+}
+
+###
+
+req.query.token

@@ -1,0 +1,29 @@
+{
+  "name": "c2-draft3",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "local-server": "nodemon local-auth-server.js",
+    "sso-idp-server": "nodemon sso-idp-server.js",
+    "sso-token-server": "nodemon sso-token-server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "cors": "^2.8.5",
+    "ejs": "^3.1.10",
+    "express": "^4.21.2",
+    "express-flash": "^0.0.2",
+    "express-session": "^1.18.1",
+    "jsonwebtoken": "^9.0.2",
+    "method-override": "^3.0.0",
+    "passport": "^0.7.0",
+    "passport-local": "^1.0.0"
+  },
+  "devDependencies": {
+    "dotenv": "^16.4.7",
+    "nodemon": "^3.1.7"
+  }
+}

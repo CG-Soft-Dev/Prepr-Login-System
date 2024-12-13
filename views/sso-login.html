@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="SSO Login page for PreprLabs">
+    <title>SSO Login - PreprLabs</title>    
+    <link rel="stylesheet" href="/styles/styles.css">
+</head>
+
+<body>
+    <main class="container">
+        <section class="form-section" aria-labelledby="login-title">
+            <img src="images/logo.png" alt="Prepr Labs Logo" class="logo">
+            <h1 id="login-title">SSO Login</h1>
+            <div class="error-message" id="error" role="alert" aria-live="polite"></div>
+            <form id="ssoForm" aria-label="SSO login form">
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" 
+                           id="username" 
+                           name="username" 
+                           required 
+                           aria-required="true"
+                           aria-describedby="username-error">
+                </div>
+                <button type="submit" 
+                        class="button primary-btn"
+                        aria-label="Submit SSO login">
+                    Login with SSO
+                </button>
+            </form>
+            <p class="link-text">
+                <a href="/welcome" 
+                   aria-label="Return to welcome page">
+                    Back to Welcome Page
+                </a>
+            </p>
+        </section>
+    </main>
+
+    <script>
+        document.getElementById('ssoForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const username = document.getElementById('username').value;
+            
+            try {
+                const response = await fetch('http://localhost:4000/login', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ username })
+                });
+
+                const data = await response.json();
+
+                if (response.ok) {
+                    localStorage.setItem('accessToken', data.accessToken);
+                    localStorage.setItem('refreshToken', data.refreshToken);
+                    window.location.href = `http://localhost:3000/sso-login-success?token=${data.accessToken}&username=${username}`;
+                } else {
+                    throw new Error(data.error || 'Login failed');
+                }
+            } catch (error) {
+                const errorDiv = document.getElementById('error');
+                errorDiv.style.display = 'block';
+                errorDiv.textContent = error.message || 'Login failed. Please try again.';
+            }
+        });
+    </script>
+</body>
+</html> 

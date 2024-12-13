@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Welcome to PreprLabs - Join challenges, labs, and projects">
+    <title>Welcome to PreprLabs</title>
+    <link rel="stylesheet" href="styles/styles.css">
+</head>
+<body>
+    <main class="container">
+        <section class="slider-section" aria-label="Feature Showcase">
+            <div class="slide">
+                <img src="images/Splash_1.png" 
+                     alt="Illustration showing challenge, lab, and project icons" 
+                     role="img">
+            </div>
+        </section>
+        
+        <section class="form-section" aria-label="Login Options">
+            <img src="images/logo.png" alt="Prepr Labs Logo" class="logo">
+            <div class="button-group" role="group" aria-label="Sign in options">
+                <button class="button login-btn" 
+                        onclick="window.location.href='/login'"
+                        aria-label="Sign in with Basic Account">
+                    Sign in with Basic Account
+                </button>
+                <button class="button sso-btn" 
+                        onclick="window.location.href='/sso-login'"
+                        aria-label="Sign in with SSO">
+                    Sign in with SSO
+                </button>
+            </div>
+            <div class="register-link">
+                <p>Don't have an account? <a href="/register" aria-label="Register for a new account">Register here</a></p>
+            </div>
+        </section>
+    </main>
+</body>
+</html> 
